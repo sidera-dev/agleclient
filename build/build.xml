@@ -1,0 +1,118 @@
+<!-- =================================================================== -->
+<!-- agle - ANT BUILD FILE                                              -->
+<!-- =================================================================== -->
+
+<project default="all" basedir=".">
+    <!-- =================================================================== -->
+    <!-- Initialization target - We define here our project's envornment     -->
+    <!-- =================================================================== -->
+    <target name="init">
+        <tstamp/>
+        <property name="name" value="agle"/>
+        <property name="version" value="0.01a"/>
+        <property name="year" value="2008"/>
+        <echo message="Building ${Name} ${version}...."/>
+
+        <property name="build.compiler" value="modern"/>
+     
+        <property name="debug" value="on"/>
+        <property name="optimize" value="on"/>
+        <property name="deprecation" value="on"/> 
+
+        <property name="src.dir" value="../src"/>
+        <property name="lib.dir" value="../lib"/>
+        
+        <property name="build.src" value="../src/agle"/>
+        <property name="build.dest" value="../classes"/>
+        
+        <filter token="year" value="${year}"/>
+        <filter token="version" value="${version}"/>
+        <filter token="date" value="${TODAY}"/>
+        <filter token="log" value="true"/>
+        <filter token="verbose" value="true"/>
+     
+    </target>
+    
+    <!-- =================================================================== -->
+    <!-- Help on usage - We describe here all the targets you can use.       -->
+    <!-- =================================================================== -->
+    <target name="usage">
+        <echo message=""/>
+        <echo message=""/>
+        <echo message="agle Fantasy Build System"/>
+        <echo message="-------------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message=" Available targets are:"/>
+        <echo message=""/>
+        <echo message="   all        --> compiles all : client, libs, etc... (default)"/> 
+        <echo message="   libs       --> compiles the libraries"/> 
+        <echo message="   converter  --> compiles ther agle converter"/>            
+        <echo message="   clean      --> cleans up the directory"/>
+        <echo message=""/>
+        <echo message=" See the comments inside the build.xml file for more details."/>
+        <echo message=""/>
+        <echo message="-------------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message=""/>
+    </target>
+    
+    
+    <!-- =================================================================== -->
+    <!-- Prepares the build directory - Enter some pre-compilation checks    -->
+    <!-- =================================================================== -->
+    <target name="prepare" depends="init">
+        <mkdir dir="${build.dest}"/>      
+    </target>
+
+    
+    <!-- =================================================================== -->
+    <!-- Compila la direcotry dei sorgenti                                    -->
+    <!-- =================================================================== -->
+
+    <!-- COMPILE ALL -->
+    <target name="all" depends="client,lib,converter">  
+    </target>
+
+   <!-- COMPILE agle CLIENT -->
+    <target name="client" depends="prepare, lib">
+        <javac srcdir="${build.src}"
+            destdir="${build.dest}" 
+            includes="client/**"                     
+            debug="${debug}"
+            deprecation="${deprecation}"
+            optimize="${optimize}">   
+            <compilerarg value="-Xlint"/>
+            </javac>
+    </target>
+    
+   <!-- COMPILE agle LIB -->
+   <target name="lib" depends="prepare">
+        <javac srcdir="${build.src}"
+            destdir="${build.dest}"
+            includes="lib/**"
+            debug="${debug}"
+            deprecation="${deprecation}"
+            optimize="${optimize}"/>         
+   </target>
+   
+   <!-- COMPILE agle CONVERTER -->
+   <target name="converter" depends="prepare, lib">
+        <javac srcdir="${build.src}"
+            destdir="${build.dest}"
+            includes="converter/**"
+            debug="${debug}"
+            deprecation="${deprecation}"
+            optimize="${optimize}"/>
+   </target>
+    
+    <!-- =================================================================== -->
+    <!-- Clean targets                                                       -->
+    <!-- =================================================================== -->
+    <target name="clean" depends="init">
+        <delete dir="${build.dest}/agle"/>
+    </target>
+
+    
+</project>
+
+<!-- End of file -->

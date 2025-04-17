@@ -1,0 +1,11 @@
+
+############################### THANKS  ##################################
+Thanks to :
+nehe				http://nehe.gamedev.net/
+gameturorials		http://www.gametutorials.com/
+blender comunity	http://www.blender.org/
+gamedev				http://www.gamedev.net/
+gl4java				http://gl4java.sourceforge.net/
+jerome jouvie 		http://jerome.jouvie.free.fr/index.php
+
+For all the usefull infromations I've found and used to develop this project. 
