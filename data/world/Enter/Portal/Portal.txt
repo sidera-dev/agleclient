@@ -1,0 +1,49 @@
+# Zone Name
+Portal
+# Zone path
+PATH ../data/world/Enter/Portal/
+# Level model
+TERRIANFILE level.3ds
+# SkyBox
+# SKYFILES back.png front.png down.png top.png left.png right.png
+# Skyplane
+SKYPLANE clouds.png 16 500.0f 900.0f 1.0f 1.0f
+# what's the weather?
+WEATHER sole
+# Gravitiy force
+GRAVITY 0.0 -9.8 0.0
+# Aereo friciotn costant
+AFRICTIONCONST 0.02
+# Terrian friction costant
+GFRICTIONCONST 0.99
+# Camera position
+CAMERA 0.0 2.0 -30.0 0.0 1.0 1.5 0.0 1.0 0.0
+# Mobiles e NumMobiles
+MOB 1
+Prova Human Male human_male ../data/human_male railgun ../data/weapon 4.0 4.0 0.0
+#  Objects Name String and position (float,float,float)
+OBJ 1
+Try 6.0 2.0 0.0
+# Uscite Da: posizione (float,float,float) A: posizione (float,float,float), land, zone
+EXIT 1
+Portal -10.0 2.0 2.0 0.0 2.0 0.0 Enter Portal
+# Particles numpart,part4sec,variance,resurrect,etc
+PARTICLESYSTEM 1
+300
+300
+0.0
+false
+0.5 1.5
+1.0 0.0 0.0 1.0 0.5 0.0
+1.0 1.0 1.0 1.0 0.5 0.0
+1.0 1.0 0.0 0.0
+0.0 0.0 0.5 0.4 0.0 0.4
+0.0 1.0 0.0 0.3 0.4
+0.32 0.72 0.48 0.84
+0.2 0.3
+0.0 2.0 0.0 
+0.32 2.0 0.32
+true
+2.5761061944 2.5761061944
+1
+../data/fire.png
